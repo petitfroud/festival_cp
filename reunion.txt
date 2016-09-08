@@ -1,0 +1,28 @@
+﻿
+<!-- fichier qui gère quelle langue sera affichée -->
+
+<?php
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    	// collect value of input field
+	setcookie("lang", $_POST['lang']);
+	}
+	?>
+
+<?php
+if (isset($_POST['lang'])){
+   if($_POST['lang'] == 'fr'){
+      include('langue/fr.php');}
+   else if($_POST['lang'] == 'nl'){
+      include('langue/nl.php');}
+   else if($_POST['lang'] == 'en'){
+      include('langue/en.php');}}
+else if (isset($_COOKIE['lang'])){
+   if($_COOKIE['lang'] == 'fr'){
+      include('langue/fr.php');}
+   else if($_COOKIE['lang'] == 'nl'){
+      include('langue/nl.php');}
+   else if($_COOKIE['lang'] == 'en'){
+      include('langue/en.php');}}
+else
+      {include('langue/fr.php');}
+?>
